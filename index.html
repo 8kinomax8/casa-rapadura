@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Casa Rapadura</title>
+  <link rel="icon" type="image/png" href="C:/Users/kinom/OneDrive/Projet/rapadura/assets/favicon/favicon.png" />
+  <link rel="icon" type="image/svg+xml" href="C:/Users/kinom/OneDrive/Projet/rapadura/assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="C:/Users/kinom/OneDrive/Projet/rapadura/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="C:/Users/kinom/OneDrive/Projet/rapadura/assets/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Rapadura" />
+  <link rel="manifest" href="C:/Users/kinom/OneDrive/Projet/rapadura/assets/favicon/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+<!-- Overlay du logo -->
+<div id="logoOverlay" class="logo-overlay">
+  <img src="C:/Users/kinom/OneDrive/Projet/rapadura/assets/rapadura-logo.svg" class="fullscreen-logo" alt="Logo Casa Rapadura">
+</div>
+
+<body>
+  <header class="topbar" id="topbar">
+    <div class="left-group">
+      <div class="location">
+        <a href="https://maps.app.goo.gl/vjBaLhJc4XLWsCC66" target="_blank">Pipa, Brésil</a>
+      </div>
+    </div>
+
+    <div class="logo">
+      <img src="C:/Users/kinom/OneDrive/Projet/rapadura/assets/rapadura-logo.svg" alt="Logo de la Casa Rapadura">
+	  <div class="title">Casa Rapadura</div>
+      <img src="C:/Users/kinom/OneDrive/Projet/rapadura/assets/rapadura-logo.svg" alt="Logo de la Casa Rapadura">
+    </div>
+
+    <div class="right-group">
+      <div class="language-switcher">
+        <button class="lang-btn" onclick="window.location.href='index.html'">FR</button>
+        <span class="separator">|</span>
+        <button class="lang-btn" onclick="window.location.href='index-en.html'">EN</button>
+        <span class="separator">|</span>
+        <button class="lang-btn" onclick="window.location.href='index-pt.html'">PT</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Casa Rapadura</h1>
+        <div class="subtitle typing">Un refuge où design, nature et gastronomie s'unissent - bientôt à Pipa...</div>
+        <button class="discover-btn" onclick="showLogo()">Plonger dans l'expérience</button>
+      </div>
+    </section>
+
+    <!-- Section Localisation -->
+    <section class="cinematic" id="localisation">
+      <div class="content-wrapper">
+        <div class="text-content">
+          <h2>Un écrin de verdure à Pipa</h2>
+          <p>
+            Niché au cœur de la nature luxuriante de Pipa dans la région de Natal, à quelques pas de la plage mais soigneusement dissimulé, 
+            Casa Rapadura est bien plus qu'un bed & breakfast: c'est un sanctuaire où chaque détail compte. 
+			Actuellement en construction, ce havre intime est conçu pour que chaque hôte s'y sente chez lui - en mieux
+          </p>
+        </div>
+        <img class="location-img" src="C:/Users/kinom/OneDrive/Projet/rapadura/assets/tibaudosul.jpg" alt="Vue de Pipa">
+      </div>
+    </section>
+
+    <!-- Âme de la Casa -->
+    <section class="cinematic" id="ame">
+      <div class="content-wrapper">
+        <div class="text-content">
+          <h2>L'âme de la Casa Rapadura</h2>
+          <p>
+			Un lieu où le temps ralentit, où l'art et les saveurs locales se mêlent pour créer une expérience sensorielle unique. La gastronomie sera au cœur de l’expérience, mettant à l’honneur des ingrédients frais et locaux dans une approche culinaire qui mêle authenticité et innovation.
+			En plus de ça, laissez-vous séduire par:
+          </p>
+          <ul class="features-list">
+            <li>🌴 Une architecture intégrée à la nature</li>
+            <li>🎨 Des œuvres d'artistes locaux</li>
+            <li>🧘 Des espaces de détente inspirants</li>
+          </ul>
+        </div>
+		<div class="image-grid">
+			<img src="C:/Users/kinom/OneDrive/Projet/rapadura/assets/exterieur.jpg" alt="Extérieur de la Casa Rapadura" class="highlight-img">
+			<img src="C:/Users/kinom/OneDrive/Projet/rapadura/assets/interieur.jpg" alt="Architecture intérieure" class="highlight-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Construction -->
+    <section class="cinematic" id="construction">
+      <h2>Naissance d'une vision</h2>
+      <div class="text-content">
+        <p>
+			Alors que Casa Rapadura prend vie, nous vous invitons à suivre notre aventure et à assister à la transformation de cette vision en un lieu prêt à accueillir ceux qui recherchent bien plus qu’un séjour - une expérience inoubliable.
+        </p>
+        <div class="progress-bar"></div>
+		<p>
+			<br>Restez connectés et préparez-vous à découvrir la Casa Rapadura de Pipa.
+		</p>
+      </div>
+      <button class="discover-btn" onclick="window.location.href='timeline.html'">
+        Voir l'évolution du projet
+      </button>
+    </section>
+  </main>
+
+  <!-- Bouton pour remonter en haut -->
+  <button id="scrollToTopBtn" class="scroll-to-top-btn" title="Remonter en haut">↑</button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Casa Rapadura. Tous droits réservés.
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>          

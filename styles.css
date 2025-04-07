@@ -23,8 +23,9 @@ body {
 @supports (-webkit-touch-callout: none) {
   .hero { 
     height: -webkit-fill-available;
-    min-height: -webkit-fill-available;
-  }
+  min-height: -webkit-fill-available;
+}
+
 }
 
 /* Top Bar */
@@ -58,22 +59,22 @@ body {
 
 .topbar .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .topbar .logo img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .topbar .title {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
   display: flex;
   align-items: center;
@@ -81,7 +82,7 @@ body {
 
 .topbar .location {
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 300;
 }
 
@@ -119,7 +120,8 @@ body {
 .hero::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 200%;
   height: 200%;
   background: linear-gradient(135deg, rgba(26,26,26,0.7), rgba(197,179,88,0.2));
@@ -128,9 +130,18 @@ body {
 }
 
 @keyframes gradientFlow {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(-25%, -25%); }
-  100% { transform: translate(0, 0); }
+  0% { transform: translate(0, 0);
+}
+
+50% {
+  transform: translate(-25%, -25%);
+  border-color: var(--gold);
+}
+
+100% {
+  transform: translate(0, 0);
+}
+
 }
 
 .hero-content {
@@ -140,7 +151,7 @@ body {
 
 .hero-content h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   opacity: 0;
   transform: translateY(50px);
@@ -148,39 +159,55 @@ body {
 }
 
 .hero-content .subtitle {
-  font-size: 1.3rem;
-  max-width: 100%;
+  font-size: 0.9rem;
+  max-width: 90%;
   margin: 0 auto 2rem;
   overflow: hidden;
   border-right: 2px solid var(--gold);
   opacity: 1;
   width: 0;
   white-space: nowrap;
-  overflow: hidden;
   animation: typing 3.5s steps(40, end) 1.5s forwards,
              blink-caret 0.75s step-end 5,
-             hide-caret 0.1s 5s forwards
+             hide-caret 0.1s 5s forwards;
+  display: block;
+  /* Commence avec une largeur de 0 */
+     white-space: nowrap;
+  /* Empêche le retour à la ligne pendant l'animation */
+     animation: typing 3s steps(35, end) 0s forwards,
+                blink-caret 0.75s step-end infinite,
+                enable-wrap 0s 3s forwards;
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from { width: 0;
+}
+
+to {
+  width: 60%;
+  transform: scale(1);
+  opacity: 1;
+}
+
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: var(--gold); }
+  from, to { border-color: transparent;
+}
+
 }
 
 @keyframes hide-caret {
-  to { border-right-color: transparent; }
+  to { border-right-color: transparent;
+}
+
 }
 
 
 /* Bouton personnalisé */
 .discover-btn {
   margin-top: 2rem;
-  padding: 1rem 2rem;
+  padding: 15px 20px;
   background: transparent;
   border: 1px solid var(--gold);
   color: var(--gold);
@@ -190,16 +217,16 @@ body {
   opacity: 0;
   width: auto;
   max-width: 700px;
-  padding: 15px 20px;
   text-align: center;
   font-family: inherit;
 }
 
 @media (hover: hover) {
-  .discover-btn:hover {
+  .discover-btn: hover {
     background: rgba(197, 179, 88, 0.1);
-    transform: scale(1.05);
-  }
+  transform: scale(1.05);
+}
+
 }
 
 .discover-btn:active {
@@ -225,9 +252,11 @@ section.cinematic {
 }
 
 section.cinematic .discover-btn {
-  margin: 2rem auto 0; /* Centrage horizontal */
-  display: block; /* Pour que margin: auto fonctionne */
-  width: fit-content; /* Ajuste la largeur au contenu */
+  margin: 2rem auto 0;
+  /* Centrage horizontal */
+  display: block;
+  /* Pour que margin: auto fonctionne */
+  width: fit-content;
 }
 
 section.cinematic:nth-child(even) {
@@ -236,14 +265,14 @@ section.cinematic:nth-child(even) {
 
 section.cinematic h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
   opacity: 0;
   transform: translateY(30px);
 }
 
 section.cinematic p {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   max-width: 800px;
   margin: 0 auto 2rem;
   opacity: 0;
@@ -253,7 +282,7 @@ section.cinematic p {
 .cinema-placeholder {
   width: 90%;
   max-width: 800px;
-  height: min(50vh, 400px);
+  height: 200px;
   aspect-ratio: 16/9;
   margin: 1rem auto;
   background-color: #222;
@@ -265,6 +294,8 @@ section.cinematic p {
   font-style: italic;
   opacity: 0;
   transform: translateY(30px);
+  /* Légèrement plus grand */
+    margin: 1.2rem auto;
 }
 
 /* FOOTER */
@@ -303,13 +334,14 @@ section.cinematic p {
   margin: 0 auto 2rem;
   opacity: 0;
   transform: translateY(30px);
- 
 }
 
 .construction .discover-btn {
-  margin: 2rem auto 0; /* Centrage horizontal */
-  display: block; /* Pour que margin: auto fonctionne */
-  width: fit-content; /* Ajuste la largeur au contenu */
+  margin: 2rem auto 0;
+  /* Centrage horizontal */
+  display: block;
+  /* Pour que margin: auto fonctionne */
+  width: fit-content;
 }
 
 .progress-bar {
@@ -333,101 +365,55 @@ section.cinematic p {
   background: linear-gradient(90deg, var(--gold), #b89a4a);
   border-radius: 10px;
   animation: progress 2s ease-in-out forwards;
+  /* Ajustez cette valeur pour l'avancement */
+  background: linear-gradient(90deg, var(--gold), #b89a4a);
 }
 
 @keyframes progress {
-  from { width: 0; }
-  to { width: 60%; }
+  from { width: 0;
+}
+
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .lang-btn {
-	font-size: 0.5rem
-  }
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-   .hero-content .subtitle {
-     font-size: 1rem;
-     max-width: 90%;
-     margin: 0 auto 2rem;
-     overflow: hidden;
-     display: block;
-     border-right: 2px solid var(--gold);
-     opacity: 1;
-     width: 0; /* Commence avec une largeur de 0 */
-     white-space: nowrap; /* Empêche le retour à la ligne pendant l'animation */
-     animation: typing 3s steps(35, end) 0s forwards,
-                blink-caret 0.75s step-end infinite,
-                enable-wrap 0s 3s forwards; /* Active le retour à la ligne après 3s */
-  }
-  
-  @keyframes enable-wrap {
-      to { 
-          white-space: normal; /* Active le retour à la ligne */
-          overflow: visible; /* Permet au texte de s'afficher normalement */
-          border-right: none; /* Supprime le curseur après l'animation */
-      }
-  }
+	font-size: 0.5rem;
+}
+
+@keyframes enable-wrap {
+  to { 
+          white-space: normal;
+  /* Active le retour à la ligne */
+          overflow: visible;
+  /* Permet au texte de s'afficher normalement */
+          border-right: none;
+}
+
+}
 
   .discover-btn {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
-  }
-  section.cinematic h2 {
-    font-size: 2rem;
-  }
-  section.cinematic p {
-    font-size: 1rem;
-  }
-  .cinema-placeholder {
-    height: 250px;
-  }
-  .topbar .logo {
-    font-size: 1.2rem;
-  }
-  .topbar .title {
-    font-size: 1.2rem;
-  }
-  .topbar .location {
-    font-size: 0.9rem;
-  }
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+}
+
 }
 
 @media (max-width: 480px) {
   .hero-content h1 {
     font-size: 2rem;
-  }
-  .hero-content .subtitle {
-    font-size: 0.9rem;
-  }
-  .discover-btn {
-    font-size: 0.9rem;
-    padding: 0.7rem 1.2rem;
-  }
-  section.cinematic h2 {
-    font-size: 1.8rem;
-  }
-  section.cinematic p {
-    font-size: 0.9rem;
-  }
-  .cinema-placeholder {
-    height: 200px;
-  }
-  .topbar {
-    padding: 0.5rem 0.8rem;
-  }
-  .topbar .logo img {
-    width: 30px;
-    height: 30px;
-  }
-  .topbar .title {
-    font-size: 1rem;
-  }
-  .topbar .location {
-    font-size: 0.8rem;
-  }
+}
+
+.discover-btn {
+  font-size: 0.9rem;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1.2rem;
+}
+
+.topbar {
+  padding: 0.5rem 0.8rem;
+}
+
 }
 
 /* TIMELINE STYLES */
@@ -470,17 +456,20 @@ section.cinematic p {
   border-radius: 50%;
   background: var(--gold);
   position: absolute;
-  left: 50%;
+  left: 20px;
   transform: translateX(-50%);
   border: 3px solid var(--dark);
   box-shadow: 0 0 10px rgba(197, 179, 88, 0.3);
 }
 
 .timeline-component {
-  width: calc(50% - 40px);
+  width: 100%;
   padding: 2rem;
   position: relative;
   margin: 2rem 0;
+  left: 0 !important;
+  text-align: left !important;
+  padding-left: 50px;
 }
 
 .timeline-content {
@@ -521,16 +510,13 @@ section.cinematic p {
 @media (max-width: 768px) {
   .timeline-middle {
     left: 20px;
-  }
-  .timeline-component {
-    width: 100%;
-    left: 0 !important;
-    text-align: left !important;
-    padding-left: 50px;
-  }
-  .timeline-circle {
-    left: 20px;
-  }
+  /* Ajustements pour les sections */
+  section.cinematic, section.construction {
+    padding: 3rem 2rem;
+  /* Légèrement plus de padding */
+    min-height: auto;
+}
+
 }
 
 .back-btn {
@@ -542,20 +528,24 @@ section.cinematic p {
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  display: block; /* Assure que le bouton est un bloc */
-  margin-left: auto; /* Centrage horizontal */
-  margin-right: auto; /* Centrage horizontal */
-  width: fit-content; /* Ajuste la largeur au contenu */
-  max-width: 100%; /* Empêche le débordement */
+  display: block;
+  /* Assure que le bouton est un bloc */
+  margin-left: auto;
+  /* Centrage horizontal */
+  margin-right: auto;
+  /* Centrage horizontal */
+  width: fit-content;
+  /* Ajuste la largeur au contenu */
+  max-width: 100%;
 }
 
 .back-btn:hover {
   background: rgba(197, 179, 88, 0.1);
-  transform: scale(1.05); /* Réduire l'effet de zoom */
+  transform: scale(1.05);
 }
 
 .back-btn:active {
-  transform: scale(0.95); /* Effet de clic */
+  transform: scale(0.95);
 }
 
 .back-btn:focus-visible {
@@ -594,36 +584,32 @@ section.cinematic p {
   background-color: rgba(197, 179, 88, 0.9);
 }
 
-@media (max-width: 768px) {
-  /* Ajustements pour les sections */
-  section.cinematic, section.construction {
-    padding: 3rem 2rem; /* Légèrement plus de padding */
-    min-height: auto; /* Supprimer la hauteur minimale fixe */
-  }
-
-  /* Ajuster les titres et paragraphes */
+/* Ajuster les titres et paragraphes */
   section.cinematic h2, section.construction h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem; /* Légèrement plus de marge sous le titre */
-  }
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
 
-  section.cinematic p, section.construction p {
-    font-size: 1rem;
-    margin-bottom: 2rem; /* Légèrement plus de marge sous le paragraphe */
-  }
+section.cinematic p, section.construction p {
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
 
-  /* Ajuster le placeholder */
+/* Ajuster le placeholder */
   .cinema-placeholder {
-    height: 300px; /* Légèrement plus grand */
-    margin: 2rem auto; /* Légèrement plus de marge */
-  }
+  height: 300px;
+  /* Légèrement plus grand */
+    margin: 2rem auto;
+}
 
-  /* Ajuster le bouton */
+/* Ajuster le bouton */
   .discover-btn {
-    margin-top: 2rem; /* Légèrement plus de marge au-dessus du bouton */
+  margin-top: 2rem;
+  /* Légèrement plus de marge au-dessus du bouton */
     padding: 1rem 2rem;
-    font-size: 1rem;
-  }
+  font-size: 1rem;
+}
+
 }
 
 h1, h2, p, .discover-btn, .text-content, subtitle typing {
@@ -634,29 +620,14 @@ h1, h2, p, .discover-btn, .text-content, subtitle typing {
 @media (max-width: 480px) {
   /* Encore plus d'ajustements pour les très petits écrans */
   section.cinematic, section.construction {
-    padding: 2rem 1rem; /* Légèrement moins de padding */
-  }
+    padding: 2rem 1rem;
+}
 
-  section.cinematic h2, section.construction h2 {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
-  }
+section.cinematic h2, section.construction h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
 
-  section.cinematic p, section.construction p {
-    font-size: 0.9rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .cinema-placeholder {
-    height: 200px; /* Légèrement plus grand */
-    margin: 1.2rem auto;
-  }
-
-  .discover-btn {
-    margin-top: 1.2rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-  }
 }
 .left-group {
   flex: 1;
@@ -683,7 +654,7 @@ h1, h2, p, .discover-btn, .text-content, subtitle typing {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 300;
-  margin-right: 20px; /* Ajustez selon besoin */
+  margin-right: 20px;
 }
 
 .location a {
@@ -694,7 +665,8 @@ h1, h2, p, .discover-btn, .text-content, subtitle typing {
 .language-switcher {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  font-size: 0.5rem;
 }
 
 .lang-btn {
@@ -731,12 +703,8 @@ h1, h2, p, .discover-btn, .text-content, subtitle typing {
 @media (max-width: 768px) {
   .topbar {
     padding: 0.8rem 1rem;
-  }
+}
 
-  .language-switcher {
-    gap: 6px;
-	font-size: 0.5rem;
-  }
 }
 .main-logo {
   width: 150px;
@@ -803,6 +771,7 @@ h1, h2, p, .discover-btn, .text-content, subtitle typing {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
 }
+
 /* Overlay du logo */
 .logo-overlay {
   position: fixed;
@@ -830,8 +799,10 @@ h1, h2, p, .discover-btn, .text-content, subtitle typing {
 }
 
 @keyframes logoReveal {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from { transform: scale(0.8);
+  opacity: 0;
+}
+
 }
 
 /* Sections de base */
@@ -840,54 +811,24 @@ h1, h2, p, .discover-btn, .text-content, subtitle typing {
   text-align: center;
 }
 
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
-}
-
-.progress-bar {
-  width: 80%;
-  max-width: 600px;
-  height: 20px;
-  background: #222;
-  border-radius: 10px;
-  margin: 1rem auto;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-bar::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 60%; /* Ajustez cette valeur pour l'avancement */
-  background: linear-gradient(90deg, var(--gold), #b89a4a);
-  border-radius: 10px;
-  animation: progress 2s ease-in-out forwards;
-}
-
-@keyframes progress {
-  from { width: 0; }
-  to { width: 60%; }
 }
 .text-content {
   position: relative;
   z-index: 1;
   max-width: 800px;
   margin: 0 auto;
-  opacity: 1 !important; /* Forcer la visibilité */
+  opacity: 1 !important;
+  /* Forcer la visibilité */
   transform: none !important;
   will-change: transform, opacity;
 }
+
 section.cinematic.visible .text-content h2,
 section.cinematic.visible .text-content p {
   opacity: 1;
   transform: translateY(0);
 }
+
 #logoOverlay {
   display: flex;
   opacity: 0;
@@ -901,6 +842,7 @@ section.cinematic.visible .text-content p {
 #logoOverlay.hide {
   opacity: 0;
 }
+
 .logo-overlay {
   position: fixed;
   top: 0;
@@ -908,12 +850,14 @@ section.cinematic.visible .text-content p {
   width: 100%;
   height: 100%;
   background: rgba(26, 26, 26, 0.95);
-  display: none; /* Caché par défaut */
+  display: none;
+  /* Caché par défaut */
   justify-content: center;
   align-items: center;
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.5s ease;
-  backdrop-filter: blur(10px) brightness(1); /* Ajoute un effet de flou */
-  pointer-events: none; /* Empêche l'interception des événements quand l'overlay est caché */
+  backdrop-filter: blur(10px) brightness(1);
+  /* Ajoute un effet de flou */
+  pointer-events: none;
 }
